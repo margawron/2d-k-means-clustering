@@ -8,7 +8,7 @@
 
 //
 // Struktura focal
-// struktura opisuj¹ca punkt skupienia danych
+// struktura opisujÄ…ca punkt skupienia danych
 //
 typedef struct {
 	float x, y;					// koordynaty punktu skupienia
@@ -17,76 +17,76 @@ typedef struct {
 
 //
 // Struktura point
-// struktura przechowywuje koordynaty punktu i przynale¿noœæ punktu na p³aszczyŸnie
+// struktura przechowywuje koordynaty punktu i przynaleÅ¼noÅ›Ä‡ punktu na pÅ‚aszczyÅºnie
 //
 typedef struct {
 	unsigned int x, y;	//koordynaty punktu z danymi
-	focal * affil;		//wskaŸnik na element typu focal opisuj¹cy punkt skupienia danych
+	focal * affil;		//wskaÅºnik na element typu focal opisujÄ…cy punkt skupienia danych
 }point;
 
 //
 // Funkcja getPoints
-// funkcja zlicza czarne punkty na bitmapie i zwraca ich iloœæ
+// funkcja zlicza czarne punkty na bitmapie i zwraca ich iloÅ›Ä‡
 // sfImage * handle - uchwyt do pliku z bitmapie
-// return - zwraca liczbê czarnych punktów
+// return - zwraca liczbÄ™ czarnych punktÃ³w
 //
 unsigned int getAmountOfPoints(sfImage * handle);
 
 //
 // Funkcja allocatePointMemory
-// funkcja alokuje pamiêæ dla danych typu point
-// unsigned int amount - iloœæ pikseli dla których potrzebna jest pamiêæ
-// point ** dataPointer - wskaŸnik na pamiêæ która zostanie zaalokowana przez funkcjê
-// return - funkcja zwraca 1 je¿eli alokacja pamiêci siê uda³a, 0 je¿eli alokacja siê nie uda³a
+// funkcja alokuje pamiÄ™Ä‡ dla danych typu point
+// unsigned int amount - iloÅ›Ä‡ pikseli dla ktÃ³rych potrzebna jest pamiÄ™Ä‡
+// point ** dataPointer - wskaÅºnik na pamiÄ™Ä‡ ktÃ³ra zostanie zaalokowana przez funkcjÄ™
+// return - funkcja zwraca 1 jeÅ¼eli alokacja pamiÄ™ci siÄ™ udaÅ‚a, 0 jeÅ¼eli alokacja siÄ™ nie udaÅ‚a
 //
 int allocatePointMemory(unsigned int amount, point ** dataPointer);
 
 //
 // Funkcja allocateFocalMemory
-// funkcja alokuje pamiêæ dla danych typu point
-// unsigned int amount - iloœæ pikseli dla których potrzebna jest pamiêæ
-// point ** dataPointer - wskaŸnik na pamiêæ która zostanie zaalokowana przez funkcjê
-// return - funkcja zwraca 1 je¿eli alokacja pamiêci siê uda³a, 0 je¿eli alokacja siê nie uda³a
+// funkcja alokuje pamiÄ™Ä‡ dla danych typu point
+// unsigned int amount - iloÅ›Ä‡ pikseli dla ktÃ³rych potrzebna jest pamiÄ™Ä‡
+// point ** dataPointer - wskaÅºnik na pamiÄ™Ä‡ ktÃ³ra zostanie zaalokowana przez funkcjÄ™
+// return - funkcja zwraca 1 jeÅ¼eli alokacja pamiÄ™ci siÄ™ udaÅ‚a, 0 jeÅ¼eli alokacja siÄ™ nie udaÅ‚a
 //
 int allocateFocalMemory(unsigned int amount, focal ** dataPointer);
 
 //
 // Funkcja loadPointsToMem
-// funkcja zapisuje punkty ze struktury sfImage do tablicy wskazanej przez dataPointer 
-// point ** dataPointer - wskaŸnik na tablicê z punktami
-// sfImage * handle - uchwyt do struktury przechowywuj¹cej piksele
+// funkcja zapisuje punkty ze struktury sfImage do tablicy wskazanej przez dataPointer
+// point ** dataPointer - wskaÅºnik na tablicÄ™ z punktami
+// sfImage * handle - uchwyt do struktury przechowywujÄ…cej piksele
 //
 void loadPointsToMem(point ** dataPointer, sfImage * handle);
 
 //
 // Funkcja loadFocals
-// funkcja ustawia podan¹, losow¹ iloœæ punktów
-// focal ** dataFocals - wskaŸnik na wskaŸnik na blok pamiêci do którego nale¿y za³adowaæ punkty
-// point ** dataPoints - wska¿nik na wskaŸnik na block pamiêci zawier¹cy punkty z którego nale¿y wylosowaæ punkty skupienia
-// unsigned int amountOfDots - iloœæ punktów w bloku pamiêci
-// unsigned int amountOfFocals - iloœæ punktów skupienia w bloku pamiêci (iloœæ punktów skupienia do wylosowania)
+// funkcja ustawia podanÄ…, losowÄ… iloÅ›Ä‡ punktÃ³w
+// focal ** dataFocals - wskaÅºnik na wskaÅºnik na blok pamiÄ™ci do ktÃ³rego naleÅ¼y zaÅ‚adowaÄ‡ punkty
+// point ** dataPoints - wskaÅ¼nik na wskaÅºnik na block pamiÄ™ci zawierÄ…cy punkty z ktÃ³rego naleÅ¼y wylosowaÄ‡ punkty skupienia
+// unsigned int amountOfDots - iloÅ›Ä‡ punktÃ³w w bloku pamiÄ™ci
+// unsigned int amountOfFocals - iloÅ›Ä‡ punktÃ³w skupienia w bloku pamiÄ™ci (iloÅ›Ä‡ punktÃ³w skupienia do wylosowania)
 //
 void loadFocals(focal ** dataFocals, point ** dataPoints, unsigned int amountOfDots, unsigned int amountOfFocals);
 
 //
 // Funkcja setFocals
-// funkcja ustala stacjonarne punkty skupienia (tk. takie które po kolejnych iteracjach siê nie przemieszcz¹) b¹dŸ przerywa po okreœlonej liczbie iteracji
-// focal * focalPoints - adres blok pamiêci z punktami skupienia
-// point ** dataPointer - wskaŸnik na adres do bloku pamiêci który przechowuje czarne punkty (punkty danych) z bitmapy
-// unsigned int amountOfPoints - iloœæ (wielkoœæ bloku pamiêci) punktów danych
-// unsigned int amountOfFocals - iloœæ (wielkoœæ bloku pamiêci) punktów skupienia 
+// funkcja ustala stacjonarne punkty skupienia (tk. takie ktÃ³re po kolejnych iteracjach siÄ™ nie przemieszczÄ…) bÄ…dÅº przerywa po okreÅ›lonej liczbie iteracji
+// focal * focalPoints - adres blok pamiÄ™ci z punktami skupienia
+// point ** dataPointer - wskaÅºnik na adres do bloku pamiÄ™ci ktÃ³ry przechowuje czarne punkty (punkty danych) z bitmapy
+// unsigned int amountOfPoints - iloÅ›Ä‡ (wielkoÅ›Ä‡ bloku pamiÄ™ci) punktÃ³w danych
+// unsigned int amountOfFocals - iloÅ›Ä‡ (wielkoÅ›Ä‡ bloku pamiÄ™ci) punktÃ³w skupienia
 // sfImage * handle - uchwyt do danych wczytanych z bitmapy
-// unsigned int iterations - maksymalna iloœc iteracji jak¹ mo¿e wykonaæ program po czym ma zakoñczyæ wyznaczanie punktów skupieñ
-// short doInbetween - prze³¹cznik decyduj¹cy czy funkcja ma robiæ zrzuty po³o¿enia danych do bitmapy co iteracjê
+// unsigned int iterations - maksymalna iloÅ›c iteracji jakÄ… moÅ¼e wykonaÄ‡ program po czym ma zakoÅ„czyÄ‡ wyznaczanie punktÃ³w skupieÅ„
+// short doInbetween - przeÅ‚Ä…cznik decydujÄ…cy czy funkcja ma robiÄ‡ zrzuty poÅ‚oÅ¼enia danych do bitmapy co iteracjÄ™
 //
 void setFocals(focal * focalPoints, point ** dataPointer, unsigned int amountOfPoints, unsigned int amountOfFocals, sfImage * handle, unsigned int iterations, short doInbetween);
 
 //
 // Funkcja changeImage
 // funkcja nanosi kolor na piksele z danymi na bitmapie
-// point * points - adres bloku pamiêci przychowywuj¹cego punkty danych
+// point * points - adres bloku pamiÄ™ci przychowywujÄ…cego punkty danych
 // sfImage * handle - uchwyt do danych wczytanch z bitmapy
-// 
+//
 void changeImage(point * points, unsigned int amountOfPoints, sfImage * handle);
 
 

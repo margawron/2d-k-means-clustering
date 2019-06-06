@@ -91,14 +91,14 @@ void loadFocals(focal** dataFocals, point** dataPoints, unsigned int amountOfDot
 
 void setFocals(focal* focalPoints, point** dataPointer, unsigned int amountOfPoints, unsigned int amountOfFocals,sfImage* handle, unsigned int maxIterations, short doInbetween)
 {
-	int* previousCoords = (int*)malloc(amountOfFocals * 2 * sizeof(int)); // tablica przechowywuj¹ca poprzednie koordynaty punktow skupienia
+	int* previousCoords = (int*)malloc(amountOfFocals * 2 * sizeof(int)); // tablica przechowywujÄ…ca poprzednie koordynaty punktow skupienia
 	long int iteration = 0;
 
 
 	char filename[20];
 	sprintf(filename, "%d.png",iteration);
 
-	//przypisz 0 dla wartoœci poprzednich
+	//przypisz 0 dla wartoÅ›ci poprzednich
 	for (int i = 0; i < amountOfFocals; i++)
 	{
 		*(previousCoords + i) = (focalPoints + i)->x;
@@ -111,8 +111,8 @@ void setFocals(focal* focalPoints, point** dataPointer, unsigned int amountOfPoi
 		(*dataPointer + i)->affil = focalPoints;
 	}
 
-	//0 wartoœci siê nie zmieni³y
-	//1 wartoœci siê zmieni³y
+	//0 wartoÅ›ci siÄ™ nie zmieniÅ‚y
+	//1 wartoÅ›ci siÄ™ zmieniÅ‚y
 	short hasChanged = 1;
 
 	// __WHILE__
@@ -129,7 +129,7 @@ void setFocals(focal* focalPoints, point** dataPointer, unsigned int amountOfPoi
 		hasChanged = 0;
 		float distanceFromParent, distanceFromFocal;
 		/*
-			Ustawianie najkrótszej odleg³oœci dla ka¿dego punktu w tablicy wskazywanej przez	 point ** dataPointer
+			Ustawianie najkrÃ³tszej odlegÅ‚oÅ›ci dla kaÅ¼dego punktu w tablicy wskazywanej przez	 point ** dataPointer
 		*/
 		for (int i = 0; i < amountOfPoints; i++)
 		{
@@ -146,11 +146,11 @@ void setFocals(focal* focalPoints, point** dataPointer, unsigned int amountOfPoi
 			}
 		}
 		/*
-			Ustawianie najkrótszej odleg³oœci dla ka¿dego punktu w tablicy wskazywanej przez	 point ** dataPointer
+			Ustawianie najkrÃ³tszej odlegÅ‚oÅ›ci dla kaÅ¼dego punktu w tablicy wskazywanej przez	 point ** dataPointer
 		*/
 
 
-		// Ustawienie nowych koordynatów punktów skupienia
+		// Ustawienie nowych koordynatÃ³w punktÃ³w skupienia
 		for (int i = 0; i < amountOfFocals; i++)
 		{
 			long long int x = 0, y = 0, count = 0;
@@ -169,7 +169,7 @@ void setFocals(focal* focalPoints, point** dataPointer, unsigned int amountOfPoi
 				(focalPoints + i)->y = y / count;
 			}
 		}
-		//Sprawdzenie czy koordynaty punktów skupienia siê zmieni³y siê po miêdzy iteracjami
+		//Sprawdzenie czy koordynaty punktÃ³w skupienia siÄ™ zmieniÅ‚y siÄ™ po miÄ™dzy iteracjami
 		for (int i = 0; i < amountOfFocals; i++)
 		{
 

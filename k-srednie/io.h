@@ -5,32 +5,32 @@
 
 //
 // Funkcja readArgs
-// funkcja ma za zadanie oczytanie nazw plików we/wy z argumentów uruchomieniowych programu
-// int arg_count - liczba argumentów podana do programu
-// char ** arg_value - wska¿nik na tablicê z argumentami
-// char ** inputFile - wska¿nik na tablicê znaków do której zostanie przypisana nazwa pliku wejsciowego
-// char ** outputFile - wskaŸnik na tablicê znaków do której zostanie przypisana nazwa pliku wyjœciowego
-// unsigned int * iterations - przekazanie przez argument maksymalnej iloœci iteracji
-// unsigned int * numberOfFocals - przekazanie przez argument iloœci grup skupienia
-// return - zwraca 1 je¿eli oczytano argumenty z pliku, lub 0 je¿eli nie uda³o siê odczytaæ argumentów
+// funkcja ma za zadanie oczytanie nazw plikÃ³w we/wy z argumentÃ³w uruchomieniowych programu
+// int arg_count - liczba argumentÃ³w podana do programu
+// char ** arg_value - wskaÅ¼nik na tablicÄ™ z argumentami
+// char ** inputFile - wskaÅ¼nik na tablicÄ™ znakÃ³w do ktÃ³rej zostanie przypisana nazwa pliku wejsciowego
+// char ** outputFile - wskaÅºnik na tablicÄ™ znakÃ³w do ktÃ³rej zostanie przypisana nazwa pliku wyjÅ›ciowego
+// unsigned int * iterations - przekazanie przez argument maksymalnej iloÅ›ci iteracji
+// unsigned int * numberOfFocals - przekazanie przez argument iloÅ›ci grup skupienia
+// return - zwraca 1 jeÅ¼eli oczytano argumenty z pliku, lub 0 jeÅ¼eli nie udaÅ‚o siÄ™ odczytaÄ‡ argumentÃ³w
 //
 int readArgs(int arg_count, char ** arg_value, char ** inputFile, char ** outputFile, unsigned int * iterations, unsigned int * numberOfFocals);
 
 //
 // Funkcja openFile
 // funkcja otwiera plik o zadanej nazwie i zwraca uchwyt do niego (adres do struktury z danymi)
-// char * inputFile - wskaŸnik na tablicê znaków z nazw¹ pliku wejœciowego
-// sfImage ** handle - wskaŸnik na uchwyt do struktury z pikselami
-// return - zwraca 1 je¿eli uda³o siê otworzyæ plik
+// char * inputFile - wskaÅºnik na tablicÄ™ znakÃ³w z nazwÄ… pliku wejÅ›ciowego
+// sfImage ** handle - wskaÅºnik na uchwyt do struktury z pikselami
+// return - zwraca 1 jeÅ¼eli udaÅ‚o siÄ™ otworzyÄ‡ plik
 //
 int openFile(char * inputFile, sfImage ** handle);
 
 //
 // Funkcja saveFile
 // funkcja zapisuje bufor z pikselami do pliku o nazwie podanej w tablicy outputFile
-// char * outputFile - przechowuje nazwê pliku do którego ma zostaæ zapisany obraz
+// char * outputFile - przechowuje nazwÄ™ pliku do ktÃ³rego ma zostaÄ‡ zapisany obraz
 // sfImage * handle - zawiera uchwyt do struktury z buforem pikseli
-// return - zwraca 1 je¿eli obraz uda³o siê zapisaæ do pliku, 0 je¿eli nie uda³o sie zapisaæ obrazu
+// return - zwraca 1 jeÅ¼eli obraz udaÅ‚o siÄ™ zapisaÄ‡ do pliku, 0 jeÅ¼eli nie udaÅ‚o sie zapisaÄ‡ obrazu
 //
 int saveFile(char * outputFile, sfImage * handle);
 
