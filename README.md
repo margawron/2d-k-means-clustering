@@ -1,0 +1,1 @@
+Algorytm centroidów / k-średnich
